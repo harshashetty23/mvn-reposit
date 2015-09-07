@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Mar 01 14:26:32 IST 2015
+http\://sjbude183v.corp.webex.com\:8888/artifactory/repo/.error=Could not transfer artifact org.springframework\:spring-aop\:jar\:sources\:3.0.3.RELEASE from/to central (http\://sjbude183v.corp.webex.com\:8888/artifactory/repo/)\: sjbude183v.corp.webex.com
+@default-http\://sjbude183v.corp.webex.com\:8888/artifactory/repo/.lastUpdated=1425200192428

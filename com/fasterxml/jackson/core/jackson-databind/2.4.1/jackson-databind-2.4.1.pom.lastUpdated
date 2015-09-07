@@ -1,0 +1,5 @@
+#NOTE: This is an internal implementation file, its format can be changed without prior notice.
+#Wed Aug 05 20:14:52 IST 2015
+default-http\://sjbude183v.corp.webex.com\:8888/artifactory/repo/.lastUpdated=1438785892909
+http\://sjbude183v.corp.webex.com\:8888/artifactory/repo/.error=Could not transfer artifact com.fasterxml.jackson.core\:jackson-databind\:pom\:2.4.1 from/to snapshots (http\://sjbude183v.corp.webex.com\:8888/artifactory/repo/)\: Error transferring file\: sjbude183v.corp.webex.com
+@default-http\://sjbude183v.corp.webex.com\:8888/artifactory/repo/.lastUpdated=1438703143395

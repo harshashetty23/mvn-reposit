@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Sep 01 16:25:31 IST 2015
+http\://sjbude183v.corp.webex.com\:8888/artifactory/repo/.lastUpdated=1441104931445
+@default-http\://repo.maven.apache.org/maven2/.lastUpdated=1438170581658
+http\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.springframework\:spring-context-support\:jar\:3.0.5.RELEASE from/to central (http\://repo.maven.apache.org/maven2)\: repo.maven.apache.org
