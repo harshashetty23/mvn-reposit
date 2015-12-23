@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>WunderChef</groupId>
+    <artifactId>ChefParent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>ChefCore</artifactId>
+  <name>ChefCore</name>
+ <url>https://github.com/harshashetty23/mvn-reposit</url>
+ <properties>
+		<spring.version>3.2.2.RELEASE</spring.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<module.skip.tests>true</module.skip.tests>
+		<skipTests>${module.skip.tests}</skipTests>
+		
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+	
+   <github.global.server>github</github.global.server>
+
+	</properties>
+	<repositories>
+		<repository>
+			<id>harshashetty23</id>
+			<url>https://github.com/harshashetty23/mvn-reposit/raw/master</url>
+		</repository>
+	</repositories>
+<distributionManagement>
+    <repository>
+        <id>internal.repo</id>
+        <name>Temporary Staging Repository</name>
+        <url>file://${project.build.directory}/mvn-reposit</url>
+    </repository>
+</distributionManagement>
+ <build>
+<plugins>
+    <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.1</version>
+        <configuration>
+            <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-reposit</altDeploymentRepository>
+        </configuration>
+    </plugin>
+    <plugin>
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <version>0.11</version>
+            <configuration>
+                <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+                <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+                <outputDirectory>${project.build.directory}/mvn-reposit</outputDirectory> <!-- matches distribution management repository url above -->
+                <branch>refs/heads/master</branch>                       <!-- remote branch name -->
+                <includes><include>**/*</include></includes>
+                <merge>true</merge>                                        <!-- don't delete old artifacts -->
+                <repositoryName>mvn-reposit</repositoryName>      <!-- github repo name -->
+                <repositoryOwner>harshashetty23</repositoryOwner> 
+                 <github.site.dryRun>true</github.site.dryRun>   <!-- github username  -->
+            </configuration>
+            <executions>
+              <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+              <execution>
+                <goals>
+                  <goal>site</goal>
+                </goals>
+                <phase>deploy</phase>
+              </execution>
+            </executions>
+        </plugin>
+</plugins>
+</build>
+  <dependencies>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.7.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>3.2.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.2.2.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+  </dependencies>
+</project>
